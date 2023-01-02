@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
         //commencer le jeu
         Game game = new Game();
-        Player player1 = new Player("X",0);
+        Player player1 = new Player("Vivi",0);
         //lancer les dés
         player1.setPosition(firstThrowDice(game));
         //tester si combinaison speciale
@@ -30,7 +30,7 @@ public class Main {
             game.initBoard();
             game.setBoardPosition(player1.getPosition());
         }
-        System.out.println("Bravo " + player1 + ", tu as gagné en " + game.getGameLap() + " tours !");
+        System.out.println("Bravo " + player1.getName() + ", tu as gagné en " + game.getGameLap() + " tours !");
     }
     public static int firstThrowDice(Game currentGame){
 //        Game game = new Game();

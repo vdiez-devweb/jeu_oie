@@ -56,6 +56,7 @@ public class Game {
             System.out.print(boardPosition[i]);
         }
         System.out.println("");
+        System.out.println("");
     }
     public boolean gameOver(Player player){ return (player.getPosition() == boardSize); }
 
