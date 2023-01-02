@@ -5,6 +5,15 @@ public class Game {
     private String [] boardPosition = new String[boardSize+1];
     private int dice1;
     private int dice2;
+    private int gameLap = 0;
+
+    public int getGameLap() {
+        return gameLap;
+    }
+
+    public void setGameLap(int gameLap) {
+        this.gameLap = gameLap;
+    }
 
     public int getDice1() {
         return dice1;
@@ -27,7 +36,7 @@ public class Game {
     }
 
     public void initBoard(){
-        for ( int i = 0; i <= 63; ++i){
+        for ( int i = 0; i <= this.boardSize; ++i){
             if (i < 10){
                 this.boardGame[i] = i + "  ";
             }else{
@@ -38,7 +47,7 @@ public class Game {
         System.out.println("");
     }
     public void setBoardPosition(int position){
-        for ( int i = 0; i <= 63; ++i){
+        for ( int i = 0; i <= this.boardSize; ++i){
             if (i==position){
                 this.boardPosition[i] = "X |";
             }else{
@@ -48,9 +57,7 @@ public class Game {
         }
         System.out.println("");
     }
-    public boolean gameOver(Player player){
-        return (player.getPosition() == boardSize);
-    }
+    public boolean gameOver(Player player){ return (player.getPosition() == boardSize); }
 
     //définir positionnement (avec calcul des coups spéciaux)
     public boolean isSpecialBox (int position){
@@ -63,7 +70,7 @@ public class Game {
         }
     }
     public boolean isGooseBox(int position){
-        if (position != 63) {
+        if (position != this.boardSize) {
             return position % 9 == 0;
         }else{
             return false;
